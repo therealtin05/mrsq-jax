@@ -16,10 +16,8 @@ from tqdm import tqdm
 
 from MRSQ.mrsq import MRSQ, MRSQConfig, MRSQTrainingState
 from MRSQ.buffers.transitions import Transition
-# from flashbax.buffers.trajectory_buffer import make_trajectory_buffer
 from MRSQ.buffers.trajectory_buffer import make_trajectory_buffer   
 from MRSQ.buffers.prioritised_trajectory_buffer import make_prioritised_trajectory_buffer   
-from MRSQ.common.mdp_utils import generate_unroll, get_mask_from_transitions
 from MRSQ.envs.dmcontrol import make_dmc_env
 from MRSQ.envs.wrappers.action_repeat import RepeatAction
 
@@ -92,7 +90,6 @@ class Trainer:
         self._observation_size = env.observation_space.shape[-1]
         self._action_size = env.action_space.shape[-1]
         self._eval_env = make_env(env_config, trainer_config.seed)
-        # Define once, at __init__ or before the loop
 
         if self._action_size >= 20:
             self._mrsq_config.iterations += 2

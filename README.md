@@ -4,6 +4,8 @@ JAX re-implementation of **The Surprising Difficulty of Search in Model-Based Re
 
 Paper: https://arxiv.org/abs/2601.21306
 
+Kaggle setup: https://www.kaggle.com/code/therealtin/public-mrsq-jax
+
 ## Results
 
 ![LAP Comparision](media/comparison.png)

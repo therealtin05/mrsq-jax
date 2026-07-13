@@ -212,7 +212,7 @@ def sample(
 
     valid_item_mask = jnp.where(
         state.is_full[:, None],
-        jnp.ones((add_batch_size, max_length_time_axis), dtype=bool).at[jnp.arange(add_batch_size)[:, None], jnp.arange(sequence_length)[None, :] + max_start[:, None]].set(False),
+        jnp.ones((add_batch_size, max_length_time_axis), dtype=bool).at[jnp.arange(add_batch_size)[:, None], (jnp.arange(sequence_length)[None, :] + max_start[:, None]) % max_length_time_axis].set(False),
         jnp.arange(max_length_time_axis)[None, :] < max_start[:, None]
     )
 
